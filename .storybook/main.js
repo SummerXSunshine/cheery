@@ -13,5 +13,13 @@ const config = {
   docs: {
     autodocs: "tag",
   },
+  webpackFinal: async (config) => {
+    // 添加别名配置
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': require('path').resolve(__dirname, '../src'),
+    };
+    return config;
+  },
 };
 export default config;
